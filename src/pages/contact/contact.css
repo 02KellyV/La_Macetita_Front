@@ -1,0 +1,69 @@
+.banner{
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+}
+.carrots{
+    width: 100%;
+}
+.carrots img{
+    position: relative;
+    top: -150px;
+}
+.container {
+    height: 200vh;
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .carrots3 {
+    display: inline-block;
+    position: relative;
+    transition: .1s;
+  }
+  .shape {
+    background-image: url(/images/shape1-01.png);
+    width: 275px;
+    height: 275px;
+    position: absolute;
+    top: 272px;
+    right: 158px;
+    background-position: 0px;
+    -webkit-mask-image: url(/images/carrot-mask.png);
+    mask-image: url(/images/carrot-mask.png);
+    background-size: contain;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transform: rotate(46deg);
+  }
+  .shape2 {
+    background-image: url(/images/shape1-01.png);
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 444px;
+    right: 287px;
+    background-position: 0px;
+    -webkit-mask-image: url(/images/carrot-mask.png);
+    mask-image: url(/images/carrot-mask.png);
+    background-size: contain;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transform: rotate(48deg);
+  }
+  .shape3 {
+    background-image: url(/images/shape1-01.png);
+    width: 218px;
+    height: 218px;
+    position: absolute;
+    top: 369px;
+    right: 101px;
+    background-position: 0px;
+    -webkit-mask-image: url(/images/carrot-mask.png);
+    mask-image: url(/images/carrot-mask.png);
+    background-size: contain;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transform: rotate(48deg);
+  }
