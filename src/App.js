@@ -1,7 +1,8 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Contact from './pages/contact/contact';
+import Contact from "./pages/contact/contact";
+import Menu from "./pages/menu/Menu";
 
 function App() {
   return (
@@ -9,11 +10,12 @@ function App() {
       <Router>
         <Switch>
           <Route path="/contact">
-            <Contact/>
+            <Menu />
+            <Contact />
           </Route>
-          <Redirect from="/" to="/contact"/>
+          <Redirect from="/" to="/contact" />
         </Switch>
-    </Router>
+      </Router>
     </div>
   );
 }
