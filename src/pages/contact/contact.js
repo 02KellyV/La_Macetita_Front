@@ -28,6 +28,7 @@ function Contact(){
             <header>
                 <section className= "banner">
                     <img src={BannerImage} alt="girl-carrot" ></img>
+                    <h1 className= "carrots-title">Contact Us!</h1>
                 </section>
             </header>
             <section className= "carrots">
@@ -39,29 +40,38 @@ function Contact(){
                         <div className="shape3 mask"></div>
                     </figure>
                 </aside>
-                <aside className= "carrots-info">
-                    <h1 className= "carrots-title">Contact</h1>
-                    <div>
-                        <h3>Talk to us!</h3>
-                        <p>We currently don't have a physical service center yet...
-                            But, we can support u in the following channels:
-                        </p>
-                    </div>
-                    <div>
-                        <h3>WhatsApp</h3>
-                        <p>Redirect Line</p>
-                    </div>
-                    <div>
-                        <h3>Instagram</h3>
-                        <p>lamacetita_20</p>
-                    </div>
+                <section className= "carrots-info">
+                    <div className="info-boxes">
+                        <div className="box">
+                            <h3>Have some questions?</h3>
+                            <p> Get help from your published products, answers from the support team,
+                                or review our articles: <a href="lamacetita.com/FAQ">Common issues - FAQ</a></p>
+                        </div>
+                        <div className="box">
+                            <h3>E-mails</h3>
+                            <p>support@lamacetita.com</p>
+                            <p>commercial@lamacetita.com</p>
+                            <div className="icon">
+                                
+                            </div>
+                        </div>
+                        <div className="box">
+                            <h3>Social</h3>
+                            <p>WhatsApp: <a href="https://api.whatsapp.com/send?phone=+573006020103">Send message</a></p>
+                            <p>Instagram: <a href="https://www.instagram.com/lamacetita_20/">lamacetita_20</a></p>
+                            <div className="icon">
 
-                    <div>
-                        <h3>E-mails</h3>
-                        <p>support@lamacetita.com</p>
-                        <p>commercial@lamacetita.com</p>
+                            </div>
+                        </div>
+                        <div className="box">
+                            <h3>Address</h3>
+                            <p>From Medellín, Colombia ♡</p>
+                            <div className="icon">
+                                
+                            </div>
+                        </div>
                     </div>
-                </aside>
+                </section>
             </section> {/* section */}
             <Footer/>
         </div>

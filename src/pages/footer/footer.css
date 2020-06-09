@@ -1,8 +1,24 @@
 .footer{
-    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #152215;
+    background-color: #080D04;
     color: white;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.footer-aside{
+    display: block;
+    padding: 0 15px;
+}
+.footer-wrap{
+    margin: 0 auto;
+    position: relative;
+}
+.aside25{
+    width: 25%;
+}
+.aside50{
+    width: 50%;
+    float: left;
 }
