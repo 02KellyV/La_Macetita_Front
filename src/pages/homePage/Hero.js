@@ -16,7 +16,7 @@ function Hero() {
       <div className="w-100">
         <div className="row">
           <div className="col-md-6 text-white text-center">
-            <img width="200" src="/images/logo.png" />
+            <img width="200" src="/images/logo.png" alt="logo" />
             <h1>Welcome to</h1>
             <h1>Healthy Food Paradise</h1>
             <h4>Directory of harvest & fresh food locations</h4>

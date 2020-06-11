@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { withRouter } from "react-router";
-import Footer from "../footer/footer"
-
+import Footer from "../footer/Footer"
+import Menu from "../menu/Menu";
 import './contact.css';
 import BannerImage from '../../assets/images/Contact-utils1.png'
 import CarrotImage from '../../assets/images/carrots.png'
@@ -25,6 +25,7 @@ function Contact(){
 
     return(
         <div>
+            <Menu/>
             <header>
                 <section className= "banner">
                     <img src={BannerImage} alt="girl-carrot" ></img>
