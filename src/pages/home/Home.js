@@ -12,13 +12,13 @@ function Home() {
           <nav className="menu_nav">
             <ul>
               <li>
-                <a href="index.html">Home</a>
+                <a href="index.html">Incio</a>
               </li>
               <li>
-                <a href="#">About us</a>
+                <a href="#">Como Funciona</a>
               </li>
               <li>
-                <a href="listings.html">Listings</a>
+                <a href="#">Lis22tings</a>
               </li>
               <li>
                 <a href="blog.html">News</a>
@@ -28,9 +28,6 @@ function Home() {
               </li>
             </ul>
           </nav>
-          <div className="menu_link">
-            <a href="#">+Add Listing</a>
-          </div>
         </div>
       </div>
 
@@ -39,42 +36,33 @@ function Home() {
           <div className="header_overlay"></div>
           <div className="header_content d-flex flex-row align-items-center justify-content-start">
             <div className="logo">
-              <a href="#">La Macetita</a>
+              <img src="images/logo.png" width="90" />
             </div>
 
             <div className="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
               <nav className="main_nav">
                 <ul className="d-flex flex-row align-items-center justify-content-start">
                   <li className="active">
-                    <a href="index.html">Home</a>
+                    <a href="/">Inicio</a>
                   </li>
                   <li>
-                    <a href="#">About us</a>
+                    <a href="#">Productos</a>
                   </li>
                   <li>
-                    <a href="listings.html">Listings</a>
+                    <a href="#">Como Funciona</a>
                   </li>
                   <li>
-                    <a href="blog.html">News</a>
+                    <a href="#">Contacto</a>
                   </li>
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="#">Entrar</a>
+                  </li>
+                  <li>
+                    <a href="#">Registrarse</a>
                   </li>
                 </ul>
               </nav>
-              <div className="add_listing text-center trans_200">
-                <a href="#">+Add Listing</a>
-              </div>
-              <div className="log_reg">
-                <ul className="d-flex flex-row align-items-center justify-content-start">
-                  <li>
-                    <a href="#">Login</a>
-                  </li>
-                  <li>
-                    <a href="#">Register</a>
-                  </li>
-                </ul>
-              </div>
+
               <div className="hamburger">
                 <i className="fa fa-bars trans_200"></i>
               </div>
@@ -116,145 +104,12 @@ function Home() {
             </div>
           </div>
 
-          <div className="categories">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <div className="categories_container d-flex flex-md-row flex-column align-items-start justify-content-start">
-                    <div className="category text-center">
-                      <a href="listings.html">
-                        <div className="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                          <div className="cat_icon">
-                            <img src="images/icon_1.svg" className="svg" alt="https://www.flaticon.com/authors/monkik" />
-                          </div>
-                          <div className="cat_title">Restaurants</div>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div className="category text-center">
-                      <a href="listings.html">
-                        <div className="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                          <div className="cat_icon">
-                            <img src="images/icon_2.svg" className="svg" alt="https://www.flaticon.com/authors/monkik" />
-                          </div>
-                          <div className="cat_title">Hotels</div>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div className="category text-center">
-                      <a href="listings.html">
-                        <div className="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                          <div className="cat_icon">
-                            <img src="images/icon_3.svg" className="svg" alt="https://www.flaticon.com/authors/monkik" />
-                          </div>
-                          <div className="cat_title">Nightlife</div>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div className="category text-center">
-                      <a href="listings.html">
-                        <div className="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                          <div className="cat_icon">
-                            <img src="images/icon_4.svg" className="svg" alt="https://www.flaticon.com/authors/monkik" />
-                          </div>
-                          <div className="cat_title">Coffeeshops</div>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div className="category text-center">
-                      <a href="listings.html">
-                        <div className="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                          <div className="cat_icon">
-                            <img src="images/icon_5.svg" className="svg" alt="https://www.flaticon.com/authors/monkik" />
-                          </div>
-                          <div className="cat_title">Culture</div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="locations container_custom">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <div className="section_title text-center">
-                    <h1>Explore Hot Locations</h1>
-                  </div>
-                  <div className="locations_container d-flex flex-row align-items-start justify-content-between flex-wrap">
-                    <div className="location">
-                      <img src="images/location_1.jpg" alt="" />
-                      <div className="location_title text-center">
-                        <div>
-                          <a href="single.html">
-                            Amsterdam<div>+</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="location">
-                      <img src="images/location_2.jpg" alt="" />
-                      <div className="location_title text-center">
-                        <div>
-                          <a href="single.html">
-                            Paris<div>+</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="location">
-                      <img src="images/location_3.jpg" alt="" />
-                      <div className="location_title text-center">
-                        <div>
-                          <a href="single.html">
-                            Singapore<div>+</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="location">
-                      <img src="images/location_4.jpg" alt="" />
-                      <div className="location_title text-center">
-                        <div>
-                          <a href="single.html">
-                            Chicago<div>+</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="location">
-                      <img src="images/location_5.jpg" alt="" />
-                      <div className="location_title text-center">
-                        <div>
-                          <a href="single.html">
-                            New York<div>+</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="food container_custom">
             <div className="container">
               <div className="row">
                 <div className="col">
                   <div className="section_title text-center">
-                    <h1>Find the best food near you</h1>
+                    <h1>Encuentra los mejores products cerca</h1>
                   </div>
                   <div className="grid_container grid">
                     <div className="grid-item grid_large">
@@ -333,9 +188,7 @@ function Home() {
               <div className="row">
                 <div className="col">
                   <div className="section_title text-center">
-                    <h1>
-                      How Directory<span>Plus+</span> works
-                    </h1>
+                    <h1>Como Funciona</h1>
                   </div>
                   <div className="icon_box_container d-flex flex-row align-items-start justify-content-between flex-wrap">
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
@@ -409,128 +262,12 @@ function Home() {
             </div>
           </div>
 
-          <div className="cta_2">
-            <div className="container">
-              <div className="row row-lg-eq-height">
-                <div className="col-lg-9 cta_2_col">
-                  <div className="cta_2_content">
-                    <div className="cta_2_title">
-                      <h1>
-                        Get the Directory<span>Plus+</span> App
-                      </h1>
-                    </div>
-                    <div className="cta_2_text">
-                      <p>
-                        Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper
-                        neque. Suspendisse quam est, consequat ullamcorper tellus et, fauci bus laoreet nibh.Donec cursus, risus non fermentum
-                        lacinia, felis lectus interdum velit, in pulvinar enim justo at sem.
-                      </p>
-                    </div>
-                    <div className="store_links d-flex flex-row align-items-start justify-content-start flex-wrap">
-                      <div className="store_link">
-                        <a href="#">
-                          <img src="images/store_1.jpg" alt="" />
-                        </a>
-                      </div>
-                      <div className="store_link">
-                        <a href="#">
-                          <img src="images/store_2.jpg" alt="" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 cta_2_col">
-                  <div className="cta_2_image">
-                    <img src="images/cta_2.jpg" alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="clients">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <div className="clients_slider_container">
-                    <div className="owl-carousel owl-theme clients_slider">
-                      <div className="slide">
-                        <div className="client_image">
-                          <a href="#">
-                            <img src="images/client_1.jpg" alt="" />
-                          </a>
-                        </div>
-                      </div>
-
-                      <div className="slide">
-                        <div className="client_image">
-                          <a href="#">
-                            <img src="images/client_2.jpg" alt="" />
-                          </a>
-                        </div>
-                      </div>
-
-                      <div className="slide">
-                        <div className="client_image">
-                          <a href="#">
-                            <img src="images/client_3.jpg" alt="" />
-                          </a>
-                        </div>
-                      </div>
-
-                      <div className="slide">
-                        <div className="client_image">
-                          <a href="#">
-                            <img src="images/client_4.jpg" alt="" />
-                          </a>
-                        </div>
-                      </div>
-
-                      <div className="slide">
-                        <div className="client_image">
-                          <a href="#">
-                            <img src="images/client_5.jpg" alt="" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <footer className="footer container_custom">
             <div className="container">
               <div className="row">
                 <div className="col">
                   <div className="footer_container d-flex flex-md-row flex-column align-items-center justify-content-md-start justify-content-center">
-                    <div className="copyright order-md-1 order-2">
-                      Copyright &copy; All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
-                      <a href="https://colorlib.com" target="_blank">
-                        Colorlib
-                      </a>
-                    </div>
-                    <nav className="footer_nav ml-md-auto order-md-2 order-1">
-                      <ul className="d-flex flex-row align-items-center justify-content-start">
-                        <li className="active">
-                          <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                          <a href="#">About us</a>
-                        </li>
-                        <li>
-                          <a href="listings.html">Listings</a>
-                        </li>
-                        <li>
-                          <a href="blog.html">News</a>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact</a>
-                        </li>
-                      </ul>
-                    </nav>
+                    <div className="copyright order-md-1 order-2">La Macetita</div>
                   </div>
                 </div>
               </div>
