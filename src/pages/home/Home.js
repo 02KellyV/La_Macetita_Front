@@ -39,10 +39,7 @@ function Home() {
           <div className="header_overlay"></div>
           <div className="header_content d-flex flex-row align-items-center justify-content-start">
             <div className="logo">
-              <a href="#">
-                Directory<span>Plus</span>
-                <span>+</span>
-              </a>
+              <a href="#">La Macetita</a>
             </div>
 
             <div className="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
@@ -90,7 +87,7 @@ function Home() {
 
           <div className="home">
             <div className="home_slider_container">
-              <div className="owl-carousel owl-theme home_slider">
+              <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
                   <div className="background_image" style={{ backgroundImage: "url(images/index.jpg)" }}></div>
                   <div className="home_container">
@@ -99,15 +96,13 @@ function Home() {
                         <div className="col-xl-8 offset-xl-2">
                           <div className="home_content text-center">
                             <div className="home_title">
-                              <h1>
-                                The Best City <span>Guide</span>
-                              </h1>
+                              <h1>La Macetita</h1>
                             </div>
                             <div className="search_form_container">
                               <form action="#" className="search_form" id="search_form">
                                 <div className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                                  <input type="text" className="search_input" placeholder="What are you looking for?" required="required" />
-                                  <button className="search_button">Search</button>
+                                  <input type="text" className="search_input" placeholder="Que deseas comer hoy?" required="required" />
+                                  <button className="search_button">Buscar</button>
                                 </div>
                               </form>
                             </div>
@@ -117,64 +112,6 @@ function Home() {
                     </div>
                   </div>
                 </div>
-
-                <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(images/index.jpg)" }}></div>
-                  <div className="home_container">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-xl-8 offset-xl-2">
-                          <div className="home_content text-center">
-                            <div className="home_title">
-                              <h1>The Best City Guide</h1>
-                            </div>
-                            <div className="search_form_container">
-                              <form action="#" className="search_form" id="search_form">
-                                <div className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                                  <input type="text" className="search_input" placeholder="What are you looking for?" required="required" />
-                                  <button className="search_button">Search</button>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(images/index.jpg)" }}></div>
-                  <div className="home_container">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-xl-8 offset-xl-2">
-                          <div className="home_content text-center">
-                            <div className="home_title">
-                              <h1>The Best City Guide</h1>
-                            </div>
-                            <div className="search_form_container">
-                              <form action="#" className="search_form" id="search_form">
-                                <div className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                                  <input type="text" className="search_input" placeholder="What are you looking for?" required="required" />
-                                  <button className="search_button">Search</button>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="home_slider_dots">
-                <ul id="home_slider_custom_dots" className="home_slider_custom_dots">
-                  <li className="home_slider_custom_dot active">01.</li>
-                  <li className="home_slider_custom_dot">02.</li>
-                  <li className="home_slider_custom_dot">03.</li>
-                </ul>
               </div>
             </div>
           </div>

@@ -105,7 +105,7 @@ a, a:hover, a:visited, a:active, a:link
 }
 a:hover
 {
-	color: #ffb400 !important;
+	color: #FEAF42 !important;
 }
 p a:active
 {
@@ -309,6 +309,15 @@ section
 	background-size: cover;
 	background-position: center center;
 }
+.background_image::after {
+	content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
 .nopadding
 {
 	padding: 0px !important;
@@ -334,7 +343,7 @@ section
 }
 .section_title h1 span
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .section_title::after
 {
@@ -349,7 +358,7 @@ section
 	transform: translateX(-50%);
 	width: 34px;
 	height: 2px;
-	background: #ffb400;
+	background: #FEAF42;
 	content: '';
 }
 .container_custom .container
@@ -360,7 +369,7 @@ section
 {
 	width: 196px;
 	height: 57px;
-	background: #ffb400;
+	background: #FEAF42;
 	border-radius: 5px;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
@@ -402,7 +411,7 @@ section
 }
 .header.scrolled
 {
-	background: rgba(54,15,100,0.9);
+	background: rgb(53, 153, 84, 0.9);
 }
 .header.active
 {
@@ -457,7 +466,7 @@ section
 }
 .logo a span
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .logo a span:last-child
 {
@@ -475,7 +484,7 @@ section
 }
 .main_nav ul li.active a
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .log_reg
 {
@@ -499,13 +508,13 @@ section
 }
 .log_reg ul li:first-child a
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .add_listing
 {
 	width: 142px;
 	height: 40px;
-	border: solid 2px #ffb400;
+	border: solid 2px #FEAF42;
 	border-radius: 5px;
 	margin-left: 41px;
 }
@@ -516,7 +525,7 @@ section
 	height: 100%;
 	line-height: 36px;
 	font-size: 16px;
-	color: #ffb400;
+	color: #FEAF42;
 	font-weight: 300;
 }
 .add_listing:hover
@@ -545,7 +554,7 @@ section
 }
 .hamburger:hover i
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 
 /*********************************
@@ -590,7 +599,7 @@ section
 }
 .menu_close:hover
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .menu_nav
 {
@@ -616,7 +625,7 @@ section
 {
 	font-size: 14px;
 	font-weight: 500;
-	color: #ffb400;
+	color: #FEAF42;
 }
 
 /*********************************
@@ -626,7 +635,7 @@ section
 .home
 {
 	height: 857px;
-	background: #360f64;
+	background: #359954;
 	overflow: hidden;
 }
 .home_slider_container
@@ -665,7 +674,7 @@ section
 .home_slider_custom_dot:hover,
 .home_slider_custom_dot.active
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .home_slider_custom_dot:not(:last-child)
 {
@@ -707,7 +716,7 @@ section
 	width: 27px;
 	height: 27px;
 	border-radius: 50%;
-	background: #ffb400;
+	background: #FEAF42;
 	line-height: 27px;
 	text-align: center;
 	font-size: 16px;
@@ -772,7 +781,7 @@ section
 	height: 57px;
 	border: none;
 	outline: none;
-	background: #ffb400;
+	background: #FEAF42;
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
@@ -851,7 +860,7 @@ section
 .category:hover .svg rect,
 .category:hover .svg polygon
 {
-	fill: #ffb400;
+	fill: #FEAF42;
 }
 .cat_title
 {
@@ -868,7 +877,7 @@ section
 }
 .category:hover .cat_title
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 
 /*********************************
@@ -898,7 +907,7 @@ section
 }
 .location:hover
 {
-	border-color: #ffb400;
+	border-color: #FEAF42;
 	box-shadow: 0px 35px 43px rgba(0,0,0,0.35);
 }
 .location_title
@@ -940,7 +949,7 @@ section
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;
-	background: #ffb400;
+	background: #FEAF42;
 	line-height: 35px;
 	text-align: center;
 	font-size: 18px;
@@ -1031,7 +1040,7 @@ section
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
-	border: solid 2px #ffb400;
+	border: solid 2px #FEAF42;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1051,7 +1060,7 @@ section
 	width: 118px;
 	height: 46px;
 	border-radius: 5px;
-	background: #ffb400;
+	background: #FEAF42;
 	text-align: center;
 	z-index: 1;
 	-webkit-transition: all 200ms ease;
@@ -1076,7 +1085,7 @@ section
 }
 .food_item_tag:hover a
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 
 /*********************************
@@ -1111,7 +1120,7 @@ section
 }
 .icon_box:hover
 {
-	border-color: #ffb400;
+	border-color: #FEAF42;
 	box-shadow: 0px 35px 43px rgba(0,0,0,0.35);
 }
 .icon_box_icon
@@ -1139,7 +1148,7 @@ section
 	width: 156px;
 	height: 156px;
 	border-radius: 50%;
-	border: solid 2px #ffb400;
+	border: solid 2px #FEAF42;
 	background: #fff3d6;
 	content: '';
 	z-index: 0;
@@ -1165,7 +1174,7 @@ section
 	width: 62px;
 	height: 62px;
 	border-radius: 50%;
-	background: #ffb400;
+	background: #FEAF42;
 	line-height: 62px;
 	text-align: center;
 	font-size: 24px;
@@ -1234,7 +1243,7 @@ section
 }
 .cta_2_title h1 span
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
 .cta_2_text
 {
@@ -1317,5 +1326,5 @@ section
 .footer_nav ul li a:hover,
 .footer_nav ul li.active a
 {
-	color: #ffb400;
+	color: #FEAF42;
 }
