@@ -38,7 +38,7 @@ function Menu() {
           <div className="header_content d-flex flex-row align-items-center justify-content-start">
             <div className="logo">
               <Link to="/">
-                <img src="images/logo.png" width="90" />
+                <img src="/images/logo.png" width="90" />
               </Link>
             </div>
 

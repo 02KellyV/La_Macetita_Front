@@ -19,12 +19,12 @@ function Footer() {
             <div className="col">
               <div className="cta_content">
                 <div className="cta_title">
-                  <h1>Find the best places in town!</h1>
+                  <h1>Alimentos frescos cuando tu quieras!</h1>
                 </div>
                 <div className="cta_text">
                   <p>
-                    Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque.
-                    Suspendisse quam est, consequat ullamcorper tellus et, fauci bus laoreet nibh.
+                    El campo, nos da vida y tranquilidad. No hay nada más saludable que alimentarnos de cosechas frescas. Acércate a tu huerta
+                    orgánica más cerca y llénate de la energía de una huerta.
                   </p>
                 </div>
               </div>

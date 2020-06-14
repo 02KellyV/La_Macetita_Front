@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import Menu from "../../common/menu/Menu";
 import Footer from "../../common/footer/Footer";
 
 const Wrapper = styled.div``;
 
 function Home() {
+  const history = useHistory();
+  const [query, setQuery] = useState("");
+
+  const search = () => {
+    history.push({
+      pathname: `/search/` + query,
+    });
+  };
+
   return (
     <Wrapper>
       <Menu />
@@ -18,7 +28,7 @@ function Home() {
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(images/index.jpg)" }}></div>
+                  <div className="background_image" style={{ backgroundImage: "url(images/landing.png)" }}></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -30,8 +40,16 @@ function Home() {
                             <div className="search_form_container">
                               <form action="#" className="search_form" id="search_form">
                                 <div className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                                  <input type="text" className="search_input" placeholder="Que deseas comer hoy?" required="required" />
-                                  <button className="search_button">Buscar</button>
+                                  <input
+                                    type="text"
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                    className="search_input"
+                                    placeholder="Que deseas comer hoy?"
+                                  />
+                                  <button className="search_button" onClick={search}>
+                                    Buscar
+                                  </button>
                                 </div>
                               </form>
                             </div>
@@ -58,23 +76,23 @@ function Home() {
                         <div className="food_item_tag">
                           <a href="#">Fusion</a>
                         </div>
-                        <img src="images/food_1.jpg" className="img-fluid" />
+                        <img src="images/best-products-1.jpg" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Fusion</a>
+                          <a href="#">Vitaminas</a>
                         </div>
-                        <img src="images/food_7.jpg" className="img-fluid" />
+                        <img src="images/best-products-2.jpeg" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Fusion</a>
+                          <a href="#">Energia</a>
                         </div>
-                        <img src="images/food_1.jpg" className="img-fluid" />
+                        <img src="images/best-products-3.jpg" className="img-fluid" />
                       </div>
                     </div>
                   </div>
@@ -82,9 +100,17 @@ function Home() {
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Fusion</a>
+                          <a href="#">Frescura</a>
                         </div>
-                        <img src="images/food_7.jpg" className="img-fluid" />
+                        <img src="images/best-products-4.jpg" className="img-fluid" />
+                      </div>
+                    </div>
+                    <div className="col food_item">
+                      <div className="">
+                        <div className="food_item_tag">
+                          <a href="#">Calidad</a>
+                        </div>
+                        <img src="images/best-products-5.jpg" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
@@ -92,15 +118,7 @@ function Home() {
                         <div className="food_item_tag">
                           <a href="#">Fusion</a>
                         </div>
-                        <img src="images/food_1.jpg" className="img-fluid" />
-                      </div>
-                    </div>
-                    <div className="col food_item">
-                      <div className="">
-                        <div className="food_item_tag">
-                          <a href="#">Fusion</a>
-                        </div>
-                        <img src="images/food_7.jpg" className="img-fluid" />
+                        <img src="images/best-products-6.jpg" className="img-fluid" />
                       </div>
                     </div>
                   </div>
