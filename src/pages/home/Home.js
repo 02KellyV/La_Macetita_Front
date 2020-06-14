@@ -28,7 +28,7 @@ function Home() {
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(images/landing.png)" }}></div>
+                  <div className="background_image" style={{ backgroundImage: "url(images/landing.jpg)" }}></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -84,7 +84,7 @@ function Home() {
                         <div className="food_item_tag">
                           <a href="#">Vitaminas</a>
                         </div>
-                        <img src="images/best-products-2.jpeg" className="img-fluid" />
+                        <img src="images/best-products-2.jpg" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
