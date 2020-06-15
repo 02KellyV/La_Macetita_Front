@@ -32,7 +32,6 @@ function Search() {
   const [products, setProducts] = useState([]);
 
   const search = () => {
-    console.log({ query });
     history.push({
       pathname: `/search/` + query,
     });
@@ -41,15 +40,20 @@ function Search() {
   useEffect(() => {
     setQuery(match.params.query);
 
-    const fetchData = async () => {
-      const result = await axios(`http://localhost:8000/api/products?search=${match.params.query}&limit=5&page=1`);
-      setProducts(result.data.data);
+    const fetchData = () => {
+      axios(`http://localhost:8000/api/products?search=${match.params.query}&limit=5&page=1`).then(
+        (response) => {
+          console.log({ response });
+          setProducts(response.data.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     };
 
     fetchData();
   }, [match.params.query]);
-
-  console.log({ products });
 
   return (
     <Wrapper>

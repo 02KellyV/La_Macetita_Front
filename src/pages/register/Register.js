@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
+import axios from "axios";
 
 const Wrapper = styled.div`
   .background_image {
@@ -9,6 +10,24 @@ const Wrapper = styled.div`
 `;
 
 function Register() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  });
+
+  const register = () => {
+    axios.post("http://localhost:8000/api/register", user).then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
   return (
     <Wrapper>
       <Menu />
@@ -31,21 +50,58 @@ function Register() {
                                 <h3 class="panel-title text-white">Register</h3>
                               </div>
                               <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form">
+                                <form
+                                  onSubmit={(e) => {
+                                    e.preventDefault();
+                                    register();
+                                  }}
+                                >
                                   <fieldset>
                                     <div class="form-group mt-2">
-                                      <input class="form-control" placeholder="John Doe" name="name" type="text" />
+                                      <input
+                                        value={user.name}
+                                        onChange={(e) => setUser({ ...user, name: e.target.value })}
+                                        class="form-control"
+                                        placeholder="John Doe"
+                                        name="name"
+                                        type="text"
+                                        required={true}
+                                      />
                                     </div>
                                     <div class="form-group mt-4">
-                                      <input class="form-control" placeholder="yourmail@example.com" name="email" type="text" />
+                                      <input
+                                        value={user.email}
+                                        onChange={(e) => setUser({ ...user, email: e.target.value })}
+                                        class="form-control"
+                                        placeholder="yourmail@example.com"
+                                        name="email"
+                                        type="text"
+                                        required={true}
+                                      />
                                     </div>
                                     <div class="form-group mt-4">
-                                      <input class="form-control" placeholder="Password" name="password" type="password" value="" />
+                                      <input
+                                        value={user.password}
+                                        onChange={(e) => setUser({ ...user, password: e.target.value })}
+                                        class="form-control"
+                                        placeholder="Password"
+                                        name="password"
+                                        type="password"
+                                        required={true}
+                                      />
                                     </div>
                                     <div class="form-group mt-4">
-                                      <input class="form-control" placeholder="Confirm password" name="password" type="password" value="" />
+                                      <input
+                                        value={user.confirm_password}
+                                        onChange={(e) => setUser({ ...user, confirm_password: e.target.value })}
+                                        class="form-control"
+                                        placeholder="Confirm password"
+                                        name="password"
+                                        type="password"
+                                        required={true}
+                                      />
                                     </div>
-                                    <input class="btn btn-lg btn-success btn-block mt-5" type="submit" value="Login" />
+                                    <input class="btn btn-lg btn-success btn-block mt-5" type="submit" value="Register" />
                                   </fieldset>
                                 </form>
                               </div>
