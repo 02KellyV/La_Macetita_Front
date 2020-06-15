@@ -19,7 +19,7 @@ function Menu() {
                 <a href="#">Como Funciona</a>
               </li>
               <li>
-                <a href="#">Lis22tings</a>
+                <a href="#">Listings</a>
               </li>
               <li>
                 <a href="blog.html">News</a>
@@ -55,7 +55,7 @@ function Menu() {
                     <a href="#">Como Funciona</a>
                   </li>
                   <li>
-                    <a href="#">Contacto</a>
+                    <Link to="/about-us">Acerca de nosotros</Link>
                   </li>
                   <li>
                     <Link to="/login">Entrar</Link>
