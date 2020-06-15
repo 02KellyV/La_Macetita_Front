@@ -1,12 +1,61 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styled from "styled-components";
+import { notification, saveUser } from "../../store/actions";
+import Loader from "../loader/Loader";
 
 const Wrapper = styled.div``;
 
-function Menu() {
+function Menu({ user, notification, onNotification }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let user = localStorage.getItem("user");
+    if (user) {
+      user = JSON.parse(user);
+      dispatch(saveUser(user));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (notification && notification.message) {
+      if (notification.type == "success") {
+        toast.success(notification.message);
+      } else if (notification.type == "error") {
+        toast.error(notification.message);
+      }
+      onNotification("", "");
+    }
+  });
+
+  const logout = () => {
+    dispatch(
+      saveUser({
+        id: null,
+        name: null,
+        email: null,
+        token: null,
+      })
+    );
+  };
+
   return (
     <Wrapper>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      />
+      <Loader />
       <div className="menu">
         <div className="menu_container text-right">
           <div className="menu_close">close</div>
@@ -57,12 +106,33 @@ function Menu() {
                   <li>
                     <Link to="/about-us">Acerca de nosotros</Link>
                   </li>
-                  <li>
-                    <Link to="/login">Entrar</Link>
-                  </li>
-                  <li>
-                    <Link to="/register">Registrarse</Link>
-                  </li>
+                  {!user.id ? (
+                    <>
+                      <li>
+                        <Link to="/login">Entrar</Link>
+                      </li>
+                      <li>
+                        <Link to="/register">Registrarse</Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <Link>{user.name}</Link>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            logout();
+                          }}
+                        >
+                          Salir
+                        </a>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </nav>
 
@@ -77,4 +147,19 @@ function Menu() {
   );
 }
 
-export default Menu;
+const mapStateToProps = (state) => {
+  return {
+    user: state.Auth.user,
+    notification: state.Notification,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onNotification: (message, type) => {
+    dispatch(notification({ message, type }));
+  },
+});
+
+const connecter = connect(mapStateToProps, mapDispatchToProps);
+
+export default connecter(Menu);

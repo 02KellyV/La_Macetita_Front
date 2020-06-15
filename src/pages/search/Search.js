@@ -43,7 +43,6 @@ function Search() {
     const fetchData = () => {
       axios(`http://localhost:8000/api/products?search=${match.params.query}&limit=5&page=1`).then(
         (response) => {
-          console.log({ response });
           setProducts(response.data.data);
         },
         (error) => {
@@ -86,11 +85,11 @@ function Search() {
         <div className="row mt-5">
           {products.map((product) => (
             <div className="col-3" key={product._id}>
-              <div class="card">
-                <span class="badge badge-success">{product.category.name}</span>
-                <img src={product.photo} class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{product.name}</h5>
+              <div className="card">
+                <span className="badge badge-success">{product.category.name}</span>
+                <img src={product.photo} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{product.name}</h5>
                   <div>${product.price}</div>
                   <div>{product.harvest.name}</div>
                   <Link to="" className="btn btn-primary mt-3 d-block">

@@ -1,11 +1,56 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
+import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
 
 const Wrapper = styled.div``;
 
-function Login() {
+function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    if (loggedUser.id) {
+      history.push({
+        pathname: "/",
+      });
+    }
+  });
+
+  const login = () => {
+    onShowLoader();
+    axios.post("http://localhost:8000/api/auth/signin", user).then(
+      (response) => {
+        const { id, name, email, token } = response.data.data;
+        dispatch(
+          saveUser({
+            id,
+            name,
+            email,
+            token,
+          })
+        );
+        onHideLoader();
+        history.push({
+          pathname: "/",
+        });
+        onNotification("Welcome!", "success");
+      },
+      (error) => {
+        onHideLoader();
+        onNotification(error.response.data.message, "error");
+      }
+    );
+  };
+
   return (
     <Wrapper>
       <Menu />
@@ -23,20 +68,41 @@ function Login() {
                       <div className="row">
                         <div className="col-md-6 offset-md-3">
                           <div className="home_content ">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h3 class="panel-title text-white">Login</h3>
+                            <div className="panel panel-default">
+                              <div className="panel-heading">
+                                <h3 className="panel-title text-white">Login</h3>
                               </div>
-                              <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form">
+                              <div className="panel-body">
+                                <form
+                                  onSubmit={(e) => {
+                                    e.preventDefault();
+                                    login();
+                                  }}
+                                >
                                   <fieldset>
-                                    <div class="form-group mt-2">
-                                      <input class="form-control" placeholder="yourmail@example.com" name="email" type="text" />
+                                    <div className="form-group mt-2">
+                                      <input
+                                        value={user.email}
+                                        onChange={(e) => setUser({ ...user, email: e.target.value })}
+                                        className="form-control"
+                                        placeholder="yourmail@example.com"
+                                        name="email"
+                                        type="text"
+                                        required={true}
+                                      />
                                     </div>
-                                    <div class="form-group mt-4">
-                                      <input class="form-control" placeholder="Password" name="password" type="password" value="" />
+                                    <div className="form-group mt-4">
+                                      <input
+                                        value={user.password}
+                                        onChange={(e) => setUser({ ...user, password: e.target.value })}
+                                        className="form-control"
+                                        placeholder="Password"
+                                        name="password"
+                                        type="password"
+                                        required={true}
+                                      />
                                     </div>
-                                    <input class="btn btn-lg btn-success btn-block mt-5" type="submit" value="Login" />
+                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Login" />
                                   </fieldset>
                                 </form>
                               </div>
@@ -57,4 +123,22 @@ function Login() {
   );
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  user: state.Auth.user,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onShowLoader: () => {
+    dispatch(showLoader());
+  },
+  onHideLoader: () => {
+    dispatch(hideLoader());
+  },
+  onNotification: (message, type) => {
+    dispatch(notification({ message, type }));
+  },
+});
+
+const connecter = connect(mapStateToProps, mapDispatchToProps);
+
+export default connecter(Login);

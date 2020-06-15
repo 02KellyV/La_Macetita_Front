@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
-import axios from "axios";
+import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
 
 const Wrapper = styled.div`
   .background_image {
   }
 `;
 
-function Register() {
+function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -17,13 +22,36 @@ function Register() {
     confirm_password: "",
   });
 
+  useEffect(() => {
+    if (loggedUser.id) {
+      history.push({
+        pathname: "/",
+      });
+    }
+  });
+
   const register = () => {
-    axios.post("http://localhost:8000/api/register", user).then(
+    onShowLoader();
+    axios.post("http://localhost:8000/api/auth/signup", user).then(
       (response) => {
-        console.log(response);
+        const { id, name, email, token } = response.data.data;
+        dispatch(
+          saveUser({
+            id,
+            name,
+            email,
+            token,
+          })
+        );
+        onHideLoader();
+        history.push({
+          pathname: "/",
+        });
+        onNotification("Welcome!", "success");
       },
       (error) => {
-        console.log(error);
+        onHideLoader();
+        onNotification("Algo salió mal, por favor intenta nuevamente", "error");
       }
     );
   };
@@ -45,11 +73,11 @@ function Register() {
                       <div className="row">
                         <div className="col-md-6 offset-md-3">
                           <div className="home_content ">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h3 class="panel-title text-white">Register</h3>
+                            <div className="panel panel-default">
+                              <div className="panel-heading">
+                                <h3 className="panel-title text-white">Register</h3>
                               </div>
-                              <div class="panel-body">
+                              <div className="panel-body">
                                 <form
                                   onSubmit={(e) => {
                                     e.preventDefault();
@@ -57,51 +85,51 @@ function Register() {
                                   }}
                                 >
                                   <fieldset>
-                                    <div class="form-group mt-2">
+                                    <div className="form-group mt-2">
                                       <input
                                         value={user.name}
                                         onChange={(e) => setUser({ ...user, name: e.target.value })}
-                                        class="form-control"
+                                        className="form-control"
                                         placeholder="John Doe"
                                         name="name"
                                         type="text"
                                         required={true}
                                       />
                                     </div>
-                                    <div class="form-group mt-4">
+                                    <div className="form-group mt-4">
                                       <input
                                         value={user.email}
                                         onChange={(e) => setUser({ ...user, email: e.target.value })}
-                                        class="form-control"
+                                        className="form-control"
                                         placeholder="yourmail@example.com"
                                         name="email"
                                         type="text"
                                         required={true}
                                       />
                                     </div>
-                                    <div class="form-group mt-4">
+                                    <div className="form-group mt-4">
                                       <input
                                         value={user.password}
                                         onChange={(e) => setUser({ ...user, password: e.target.value })}
-                                        class="form-control"
+                                        className="form-control"
                                         placeholder="Password"
                                         name="password"
                                         type="password"
                                         required={true}
                                       />
                                     </div>
-                                    <div class="form-group mt-4">
+                                    <div className="form-group mt-4">
                                       <input
                                         value={user.confirm_password}
                                         onChange={(e) => setUser({ ...user, confirm_password: e.target.value })}
-                                        class="form-control"
+                                        className="form-control"
                                         placeholder="Confirm password"
                                         name="password"
                                         type="password"
                                         required={true}
                                       />
                                     </div>
-                                    <input class="btn btn-lg btn-success btn-block mt-5" type="submit" value="Register" />
+                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Register" />
                                   </fieldset>
                                 </form>
                               </div>
@@ -122,4 +150,20 @@ function Register() {
   );
 }
 
-export default Register;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  onShowLoader: () => {
+    dispatch(showLoader());
+  },
+  onHideLoader: () => {
+    dispatch(hideLoader());
+  },
+  onNotification: (message, type) => {
+    dispatch(notification({ message, type }));
+  },
+});
+
+const connecter = connect(mapStateToProps, mapDispatchToProps);
+
+export default connecter(Register);
