@@ -1,90 +1,72 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  .parallax_background {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-`;
-
 function Footer() {
   return (
-      <footer class="page-footer font-small footer unique-color-dark">
-
-        <div class="container text-center text-md-left pt-5">
-
-          <div class="row mt-3">
-
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-              <h6 class="text-uppercase font-weight-bold">Navigate</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}}/>
-              <p>
-                <a href="#!">Home</a>
-              </p>
-              <p>
-                <a href="#!">Garden</a>
-              </p>
-              <p>
-                <a href="#!">Stories</a>
-              </p>
-              <p>
-                <a href="#!">About</a>
-              </p>
-
-            </div>
-
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-              <h6 class="text-uppercase font-weight-bold">Need help?</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}}/>
-              <p>
-                <a href="#!">FAQ</a>
-              </p>
-              <p>
-                <a href="#!">Contact</a>
-              </p>
-              <p>
-                <a href="#!">Your Account</a>
-              </p>
-              <p>
-                <a href="#!">Privacy Policy - T&amp;C</a>
-              </p>
-
-            </div>
-
-            <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
-
-              <h6 class="text-uppercase font-weight-bold">Us</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}}/>
-              <p>
-              <i class="fa fa-instagram mr-1" aria-hidden="true"></i> lamacetita_20
-              </p>
-              <p>
-                <i class="fa fa-envelope"></i> Support@lamacetita.com</p>
-              <p>
-                <i class="fa fa-map-marker mr-2"></i> From Medellín, Colombia ♡</p>
-            </div>
-
-            <div class="col-md-4 col-lg-4 col-xl-5 mx-auto mb-4">
-
-              <h6 class="text-uppercase font-weight-bold">Contact</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}}/>
-
-
-            </div>
-
+    <footer className="page-footer font-small footer unique-color-dark">
+      <div className="container text-center text-md-left pt-5">
+        <div className="row mt-3">
+          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 className="text-uppercase font-weight-bold">Navigate</h6>
+            <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <p>
+              <a href="#!">Home</a>
+            </p>
+            <p>
+              <a href="#!">Garden</a>
+            </p>
+            <p>
+              <a href="#!">Stories</a>
+            </p>
+            <p>
+              <a href="#!">About</a>
+            </p>
           </div>
 
-        </div>
+          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 className="text-uppercase font-weight-bold">Need help?</h6>
+            <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <p>
+              <a href="#!">FAQ</a>
+            </p>
+            <p>
+              <a href="#!">Contact</a>
+            </p>
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Privacy Policy - T&amp;C</a>
+            </p>
+          </div>
 
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-          <a href="https://lamacetita.com/"> La Macetita.com</a>
+          <div className="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4">
+            <h6 className="text-uppercase font-weight-bold">Us</h6>
+            <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+            <p>
+              <i className="fa fa-instagram mr-1" aria-hidden="true"></i> lamacetita_20
+            </p>
+            <p>
+              <i className="fa fa-envelope"></i> Support@lamacetita.com
+            </p>
+            <p>
+              <i className="fa fa-map-marker mr-2"></i> From Medellín, Colombia ♡
+            </p>
+          </div>
+
+          <div className="col-md-4 col-lg-4 col-xl-5 mx-auto mb-4">
+            <h6 className="text-uppercase font-weight-bold">Contact</h6>
+            <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+          </div>
         </div>
-        
-{/* <div className="cta container_custom">
+      </div>
+
+      <div className="footer-copyright text-center py-3">
+        © 2020 Copyright:
+        <a href="https://lamacetita.com/"> La Macetita.com</a>
+      </div>
+
+      {/* <div className="cta container_custom">
   <div className="parallax_background" style={{ backgroundImage: "url(/images/cta.jpg)" }}></div>
   <div className="container">
     <div className="row">
@@ -116,8 +98,7 @@ function Footer() {
     </div>
   </div>
 </footer>*/}
-      </footer>
-
+    </footer>
   );
 }
 

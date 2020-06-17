@@ -22,9 +22,9 @@ function Menu({ user, notification, onNotification }) {
 
   useEffect(() => {
     if (notification && notification.message) {
-      if (notification.type == "success") {
+      if (notification.type === "success") {
         toast.success(notification.message);
-      } else if (notification.type == "error") {
+      } else if (notification.type === "error") {
         toast.error(notification.message);
       }
       onNotification("", "");
@@ -124,7 +124,7 @@ function Menu({ user, notification, onNotification }) {
                         <Link to="/products">Productos</Link>
                       </li>
                       <li>
-                        <Link>{user.name}</Link>
+                        <a className="text-white">{user.name}</a>
                       </li>
                       <li>
                         <a
