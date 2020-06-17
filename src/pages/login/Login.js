@@ -5,11 +5,21 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
-import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
+import {
+  hideLoader,
+  notification,
+  saveUser,
+  showLoader,
+} from "../../store/actions";
 
 const Wrapper = styled.div``;
 
-function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
+function Login({
+  user: loggedUser,
+  onNotification,
+  onShowLoader,
+  onHideLoader,
+}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState({
@@ -27,7 +37,7 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
 
   const login = () => {
     onShowLoader();
-    axios.post("http://localhost:8000/api/auth/signin", user).then(
+    axios.post("http://www.lamacetita.com:8000/api/auth/signin", user).then(
       (response) => {
         const { id, name, email, token } = response.data.data;
         dispatch(
@@ -62,7 +72,10 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(images/bg3.jpg)" }}></div>
+                  <div
+                    className="background_image"
+                    style={{ backgroundImage: "url(images/bg3.jpg)" }}
+                  ></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -70,7 +83,9 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
                           <div className="home_content ">
                             <div className="panel panel-default">
                               <div className="panel-heading">
-                                <h3 className="panel-title text-white">Login</h3>
+                                <h3 className="panel-title text-white">
+                                  Login
+                                </h3>
                               </div>
                               <div className="panel-body">
                                 <form
@@ -83,7 +98,12 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
                                     <div className="form-group mt-2">
                                       <input
                                         value={user.email}
-                                        onChange={(e) => setUser({ ...user, email: e.target.value })}
+                                        onChange={(e) =>
+                                          setUser({
+                                            ...user,
+                                            email: e.target.value,
+                                          })
+                                        }
                                         className="form-control"
                                         placeholder="yourmail@example.com"
                                         name="email"
@@ -94,7 +114,12 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
                                     <div className="form-group mt-4">
                                       <input
                                         value={user.password}
-                                        onChange={(e) => setUser({ ...user, password: e.target.value })}
+                                        onChange={(e) =>
+                                          setUser({
+                                            ...user,
+                                            password: e.target.value,
+                                          })
+                                        }
                                         className="form-control"
                                         placeholder="Password"
                                         name="password"
@@ -102,7 +127,11 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
                                         required={true}
                                       />
                                     </div>
-                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Login" />
+                                    <input
+                                      className="btn btn-lg btn-success btn-block mt-5"
+                                      type="submit"
+                                      value="Login"
+                                    />
                                   </fieldset>
                                 </form>
                               </div>

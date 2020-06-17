@@ -14,7 +14,7 @@ function Harvests() {
   }, []);
 
   const getHarvest = () => {
-    axios(`http://localhost:8000/api/harvests`).then(
+    axios(`http://www.lamacetita.com:8000/api/harvests`).then(
       (response) => {
         setHarvests(response.data.data);
       },

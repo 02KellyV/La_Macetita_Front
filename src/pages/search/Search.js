@@ -41,7 +41,9 @@ function Search() {
     setQuery(match.params.query);
 
     const fetchData = () => {
-      axios(`http://localhost:8000/api/products?search=${match.params.query}&limit=5&page=1`).then(
+      axios(
+        `http://www.lamacetita.com:8000/api/products?search=${match.params.query}&limit=5&page=1`
+      ).then(
         (response) => {
           setProducts(response.data.data);
         },
@@ -86,7 +88,9 @@ function Search() {
           {products.map((product) => (
             <div className="col-3" key={product._id}>
               <div className="card">
-                <span className="badge badge-success">{product.category.name}</span>
+                <span className="badge badge-success">
+                  {product.category.name}
+                </span>
                 <img src={product.photo} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>

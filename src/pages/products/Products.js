@@ -14,7 +14,9 @@ function Products() {
   }, []);
 
   const getProduct = () => {
-    axios(`http://localhost:8000/api/products?search=fresas&page=1&total=10`).then(
+    axios(
+      `http://www.lamacetita.com:8000/api/products?search=fresas&page=1&total=10`
+    ).then(
       (response) => {
         setProducts(response.data.data);
       },
