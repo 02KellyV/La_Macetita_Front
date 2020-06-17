@@ -11,10 +11,9 @@ const Wrapper = styled.div`
 
 function Footer() {
   return (
-    <Wrapper>
-      <footer class="page-footer font-small unique-color-dark">
+      <footer class="page-footer font-small footer unique-color-dark">
 
-        <div class="container text-center text-md-left mt-5">
+        <div class="container text-center text-md-left pt-5">
 
           <div class="row mt-3">
 
@@ -61,12 +60,12 @@ function Footer() {
               <h6 class="text-uppercase font-weight-bold">Us</h6>
               <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}}/>
               <p>
-              <i class="fa fa-instagram" aria-hidden="true"></i> Instragram
+              <i class="fa fa-instagram mr-1" aria-hidden="true"></i> lamacetita_20
               </p>
               <p>
                 <i class="fa fa-envelope"></i> Support@lamacetita.com</p>
               <p>
-                <i class="fa fa-map-marker"></i> From Medellín, Colombia ♡</p>
+                <i class="fa fa-map-marker mr-2"></i> From Medellín, Colombia ♡</p>
             </div>
 
             <div class="col-md-4 col-lg-4 col-xl-5 mx-auto mb-4">
@@ -82,9 +81,9 @@ function Footer() {
         </div>
 
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-          <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+          <a href="https://lamacetita.com/"> La Macetita.com</a>
         </div>
-      </footer>
+        
 {/* <div className="cta container_custom">
   <div className="parallax_background" style={{ backgroundImage: "url(/images/cta.jpg)" }}></div>
   <div className="container">
@@ -117,7 +116,8 @@ function Footer() {
     </div>
   </div>
 </footer>*/}
-    </Wrapper>
+      </footer>
+
   );
 }
 
