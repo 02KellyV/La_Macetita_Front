@@ -6,6 +6,8 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Search from "./pages/search/Search";
+import Harvests from "./pages/harvests/Harvests";
+import Products from "./pages/products/Products";
 import store from "./store";
 
 function App() {
@@ -27,6 +29,12 @@ function App() {
           </Route>
           <Route path="/search/:query">
             <Search />
+          </Route>
+          <Route path="/harvests">
+            <Harvests />
+          </Route>
+          <Route path="/products">
+            <Products />
           </Route>
         </Switch>
       </Router>

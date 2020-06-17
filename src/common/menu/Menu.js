@@ -118,6 +118,12 @@ function Menu({ user, notification, onNotification }) {
                   ) : (
                     <>
                       <li>
+                        <Link to="/harvests">Cosechas</Link>
+                      </li>
+                      <li>
+                        <Link to="/products">Productos</Link>
+                      </li>
+                      <li>
                         <Link>{user.name}</Link>
                       </li>
                       <li>
