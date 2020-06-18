@@ -1,20 +1,92 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import { notification, saveUser } from "../../store/actions";
-import Loader from "../loader/Loader";
+import HamburgerMenu from "react-hamburger-menu";
+import { withRouter } from "react-router";
+import "./menu.css";
+
+const HamburgerMenuWrapper = styled.div`
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+  padding: 20px;
+  cursor: pointer;
+  background: #080d04;
+  border-radius: 100%;
+`;
 
 const Wrapper = styled.div``;
 
+const StyledMenu = styled.div`
+  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  right: 0;
+  z-index: 9;
+  width: 300px;
+  height: 100%;
+  background-color: #080d04;
+  padding-top: 60px;
+  ul {
+    list-style-type: none;
+    padding: 40px;
+    .sign-in-sign-up-wrapper {
+      margin-bottom: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      .a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+      }
+      .a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #c4356f;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.5s cubic-bezier(1, 0.25, 0, 0.75) 0s;
+        transition: all 0.5s cubic-bezier(1, 0.25, 0, 0.75) 0s;
+      }
+      .a:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+  }
+`;
+
 function Menu({ user, notification, onNotification }) {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [classSignIn, setClassSignIn] = useState("");
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    const nameClass = "sign-in-sign-up-wrapper shake-top";
+    console.log(!isOpen ? nameClass : "");
+    setClassSignIn(!isOpen ? nameClass : "");
+  };
 
   useEffect(() => {
     let user = localStorage.getItem("user");
     if (user) {
+      console.log(user);
       user = JSON.parse(user);
       dispatch(saveUser(user));
     }
@@ -44,7 +116,76 @@ function Menu({ user, notification, onNotification }) {
 
   return (
     <Wrapper>
-      <ToastContainer
+      <div>
+        <HamburgerMenuWrapper>
+          <HamburgerMenu
+            isOpen={isOpen}
+            menuClicked={toggleMenu}
+            width={25}
+            height={20}
+            strokeWidth={2}
+            rotate={0}
+            color="white"
+            borderRadius={0}
+            animationDuration={0.5}
+          />
+        </HamburgerMenuWrapper>
+        <StyledMenu isOpen={isOpen}>
+          <ul>
+            <li className={classSignIn}>
+              <div>
+                <Link to="/login">
+                  <img
+                    width="170"
+                    src="/images/beet-sign-in-sign-up.png"
+                    alt="sign in/up"
+                  />
+                </Link>
+              </div>
+            </li>
+            <li>
+              <Link className="a" to="/">
+                Home
+              </Link>
+            </li>
+            {user.id ? (
+              <>
+                <li>
+                  <Link className="a" to="/harvests">
+                    Harvests
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/products">Products</Link>
+                </li>
+              </>
+            ) : null}
+            <li>
+              <Link className="a" to="/stories">
+                Stories
+              </Link>
+            </li>
+            <li>
+              <Link className="a" to="/about-us">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className="a" to="/contact">
+                Contact
+              </Link>
+            </li>
+            {user.id ? (
+              <li>
+                <Link className="a" onClick={logout()}>
+                  Logout
+                </Link>
+              </li>
+            ) : null}
+          </ul>
+        </StyledMenu>
+      </div>
+      {/*<ToastContainer
         position="top-center"
         autoClose={3000}
         hideProgressBar={true}
@@ -148,7 +289,7 @@ function Menu({ user, notification, onNotification }) {
             </div>
           </div>
         </header>
-      </div>
+                        </div>*/}
     </Wrapper>
   );
 }

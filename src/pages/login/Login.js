@@ -12,6 +12,8 @@ import {
   showLoader,
 } from "../../store/actions";
 
+import Auth from "../../store/reducers/Auth";
+
 const Wrapper = styled.div``;
 
 function Login({
