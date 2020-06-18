@@ -5,24 +5,14 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
-import {
-  hideLoader,
-  notification,
-  saveUser,
-  showLoader,
-} from "../../store/actions";
+import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
 
 const Wrapper = styled.div`
   .background_image {
   }
 `;
 
-function Register({
-  user: loggedUser,
-  onNotification,
-  onShowLoader,
-  onHideLoader,
-}) {
+function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState({
@@ -33,7 +23,7 @@ function Register({
   });
 
   useEffect(() => {
-    if (loggedUser.id) {
+    if (loggedUser && loggedUser.id) {
       history.push({
         pathname: "/",
       });
@@ -77,10 +67,7 @@ function Register({
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div
-                    className="background_image"
-                    style={{ backgroundImage: "url(/images/bg3.jpg)" }}
-                  ></div>
+                  <div className="background_image" style={{ backgroundImage: "url(/images/bg3.jpg)" }}></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -88,9 +75,7 @@ function Register({
                           <div className="home_content ">
                             <div className="panel panel-default">
                               <div className="panel-heading">
-                                <h3 className="panel-title text-white">
-                                  Register
-                                </h3>
+                                <h3 className="panel-title text-white">Register</h3>
                               </div>
                               <div className="panel-body">
                                 <form
@@ -164,11 +149,7 @@ function Register({
                                         required={true}
                                       />
                                     </div>
-                                    <input
-                                      className="btn btn-lg btn-success btn-block mt-5"
-                                      type="submit"
-                                      value="Register"
-                                    />
+                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Register" />
                                   </fieldset>
                                 </form>
                               </div>
