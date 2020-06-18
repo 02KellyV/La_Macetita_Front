@@ -2,14 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Wrapper = styled.div`
-  .parallax_background {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-`;
-
 function Footer() {
   return (
     <footer class="page-footer font-small footer unique-color-dark">

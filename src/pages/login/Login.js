@@ -5,23 +5,13 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
-import {
-  hideLoader,
-  notification,
-  saveUser,
-  showLoader,
-} from "../../store/actions";
+import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
 
 import Auth from "../../store/reducers/Auth";
 
 const Wrapper = styled.div``;
 
-function Login({
-  user: loggedUser,
-  onNotification,
-  onShowLoader,
-  onHideLoader,
-}) {
+function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState({
@@ -30,7 +20,7 @@ function Login({
   });
 
   useEffect(() => {
-    if (loggedUser.id) {
+    if (loggedUser && loggedUser.id) {
       history.push({
         pathname: "/",
       });
@@ -74,10 +64,7 @@ function Login({
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div
-                    className="background_image"
-                    style={{ backgroundImage: "url(images/bg3.jpg)" }}
-                  ></div>
+                  <div className="background_image" style={{ backgroundImage: "url(images/bg3.jpg)" }}></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -85,9 +72,7 @@ function Login({
                           <div className="home_content ">
                             <div className="panel panel-default">
                               <div className="panel-heading">
-                                <h3 className="panel-title text-white">
-                                  Login
-                                </h3>
+                                <h3 className="panel-title text-white">Login</h3>
                               </div>
                               <div className="panel-body">
                                 <form
@@ -129,11 +114,7 @@ function Login({
                                         required={true}
                                       />
                                     </div>
-                                    <input
-                                      className="btn btn-lg btn-success btn-block mt-5"
-                                      type="submit"
-                                      value="Login"
-                                    />
+                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Login" />
                                   </fieldset>
                                 </form>
                               </div>
