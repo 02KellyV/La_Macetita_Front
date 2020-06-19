@@ -3290,3 +3290,7 @@ section {
   top: 0;
   opacity: 0;
 }
+
+.center {
+  justify-content: center;
+}
