@@ -1651,7 +1651,7 @@ section {
 .home_container {
   position: absolute;
   left: 0;
-  top: 30%;
+  top: 10%;
   width: 100%;
 }
 .home_content {

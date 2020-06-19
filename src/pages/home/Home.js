@@ -35,7 +35,14 @@ function Home() {
                         <div className="col-xl-8 offset-xl-2">
                           <div className="home_content text-center">
                             <div className="home_title">
-                              <h1>La Macetita</h1>
+                              <div className="row">
+                                <div className="col-md-6 text-white text-center">
+                                  <img width="200" src="/images/logo.png" alt="logo" />
+                                  <h6>Welcome to</h6>
+                                  <h6>Healthy Food Paradise</h6>
+                                  <h6>Directory of harvest & fresh food locations</h6>
+                                </div>
+                              </div>
                             </div>
                             <div className="search_form_container">
                               <form action="#" className="search_form" id="search_form">
@@ -129,27 +136,23 @@ function Home() {
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">01.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_6.svg" alt="" />
+                        <img src="images/1.png" alt="" />
                       </div>
-                      <div className="icon_box_title">Choose a category</div>
+                      <div className="icon_box_title">Search</div>
                       <div className="icon_box_text">
-                        <p>
-                          Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper
-                          neque.
-                        </p>
+                        <p>Go to the search bar, you can place the name of the product, food, fruit or vegetable, etc.. You can select a search by category as well</p>
                       </div>
                     </div>
 
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">02.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_7.svg" alt="" />
+                        <img src="images/2.png" alt="" />
                       </div>
-                      <div className="icon_box_title">Find your pick</div>
+                      <div className="icon_box_title">Select</div>
                       <div className="icon_box_text">
                         <p>
-                          Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper
-                          neque. Suspendisse quam est
+                        Once you choose a product, access the information of the harvest it belongs to, the market where you can buy it, and more.
                         </p>
                       </div>
                     </div>
@@ -157,13 +160,12 @@ function Home() {
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">03.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_8.svg" alt="" />
+                        <img src="images/3.png" alt="" />
                       </div>
-                      <div className="icon_box_title">Go & have fun</div>
+                      <div className="icon_box_title">Post</div>
                       <div className="icon_box_text">
                         <p>
-                          Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper
-                          neque. Suspendisse quam est
+                        Would you like to publish your store? You only have to register, in the menu you find the option, fill in your information and start!
                         </p>
                       </div>
                     </div>
