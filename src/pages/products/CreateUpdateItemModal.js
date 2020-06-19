@@ -67,11 +67,11 @@ function CreateUpdateItemModal(props) {
           }}
         >
           <ModalHeader toggle={props.toggleCreateUpdateItemModal}>
-            {props.create ? "Crear" : "Editar"} {props.itemName}
+            {props.create ? "Create" : "Edit"} {props.itemName}
           </ModalHeader>
           <ModalBody>
             <div className="form-group">
-              <label>Nombre</label>
+              <label>Name</label>
               <input className="form-control" value={item.name} required={true} onChange={(e) => setItem({ ...item, name: e.target.value })} />
             </div>
             <div className="form-group">
@@ -79,7 +79,7 @@ function CreateUpdateItemModal(props) {
               <input className="form-control" value={item.price} required={true} onChange={(e) => setItem({ ...item, price: e.target.value })} />
             </div>
             <div className="form-group">
-              <label>Descripción</label>
+              <label>Description</label>
               <textarea
                 className="form-control"
                 value={item.description}
@@ -88,7 +88,7 @@ function CreateUpdateItemModal(props) {
               />
             </div>
             <div className="form-group">
-              <label>Cosecha</label>
+              <label>Harvest</label>
               <select
                 className="form-control"
                 value={item.harvest_id}
@@ -107,7 +107,6 @@ function CreateUpdateItemModal(props) {
               <UploadFile
                 value={""}
                 setValue={(url) => {
-                  console.log({ url });
                   if (url !== "") {
                     setItem({
                       ...item,
@@ -143,7 +142,7 @@ function CreateUpdateItemModal(props) {
           </ModalBody>
           <ModalFooter>
             <button type="button" className="btn btn-default" onClick={props.toggleCreateUpdateItemModal}>
-              Cerrar
+              Close
             </button>
             <button type="submit" className="btn btn-primary">
               Guardar

@@ -32,6 +32,7 @@ const StyledMenu = styled.div`
   height: 100%;
   background-color: #080d04;
   padding-top: 60px;
+  top: 0;
   ul {
     list-style-type: none;
     padding: 40px;
@@ -176,12 +177,12 @@ function Menu({ user, notification, onNotification }) {
               <>
                 <li>
                   <Link className="a" to="/harvests">
-                    Cosechas
+                    Harvests
                   </Link>
                 </li>
                 <li>
                   <Link className="a" to="/products">
-                    Productos
+                    Products
                   </Link>
                 </li>
                 <li>
@@ -196,10 +197,10 @@ function Menu({ user, notification, onNotification }) {
             ) : (
               <>
                 <li>
-                  <Link to="/login">Entrar</Link>
+                  <Link to="/sign-in">Sign In</Link>
                 </li>
                 <li>
-                  <Link to="/register">Registrarse</Link>
+                  <Link to="/sign-up">Sign Up</Link>
                 </li>
               </>
             )}
@@ -249,7 +250,7 @@ function Menu({ user, notification, onNotification }) {
                     <a href="/">Inicio</a>
                   </li>
                   <li>
-                    <a href="#">Productos</a>
+                    <a href="#">Products</a>
                   </li>
                   <li>
                     <a href="#">Como Funciona</a>
@@ -269,10 +270,10 @@ function Menu({ user, notification, onNotification }) {
                   ) : (
                     <>
                       <li>
-                        <Link to="/harvests">Cosechas</Link>
+                        <Link to="/harvests">Harvests</Link>
                       </li>
                       <li>
-                        <Link to="/products">Productos</Link>
+                        <Link to="/products">Products</Link>
                       </li>
                       <li>
                         <a className="text-white">{user.name}</a>

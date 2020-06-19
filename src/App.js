@@ -3,8 +3,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
+import SignIn from "./pages/signIn/SignIn";
+import SignUp from "./pages/signUp/SignUp";
 import Search from "./pages/search/Search";
 import Harvests from "./pages/harvests/Harvests";
 import Products from "./pages/products/Products";
@@ -21,11 +21,11 @@ function App() {
           <Route path="/about-us">
             <AboutUs />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path="/sign-in">
+            <SignIn />
           </Route>
-          <Route path="/register">
-            <Register />
+          <Route path="/sign-up">
+            <SignUp />
           </Route>
           <Route path="/search/:query">
             <Search />

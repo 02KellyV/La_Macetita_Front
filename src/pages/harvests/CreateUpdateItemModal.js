@@ -48,15 +48,15 @@ function CreateUpdateItemModal(props) {
           }}
         >
           <ModalHeader toggle={props.toggleCreateUpdateItemModal}>
-            {props.create ? "Crear" : "Editar"} {props.itemName}
+            {props.create ? "Create" : "Edit"} {props.itemName}
           </ModalHeader>
           <ModalBody>
             <div className="form-group">
-              <label>Nombre</label>
+              <label>Name</label>
               <input className="form-control" value={item.name} required={true} onChange={(e) => setItem({ ...item, name: e.target.value })} />
             </div>
             <div className="form-group">
-              <label>Descripción</label>
+              <label>Description</label>
               <textarea
                 className="form-control"
                 value={item.description}
@@ -67,7 +67,7 @@ function CreateUpdateItemModal(props) {
           </ModalBody>
           <ModalFooter>
             <button type="button" className="btn btn-default" onClick={props.toggleCreateUpdateItemModal}>
-              Cerrar
+              Close
             </button>
             <button type="submit" className="btn btn-primary">
               Guardar

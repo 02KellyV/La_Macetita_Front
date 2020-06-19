@@ -1276,9 +1276,6 @@ img {
 button:active {
   outline: none;
 }
-.form-control {
-  color: #db5246;
-}
 section {
   display: block;
   position: relative;
@@ -1670,7 +1667,7 @@ section {
 .home_container {
   position: absolute;
   left: 0;
-  top: 36.2%;
+  top: 30%;
   width: 100%;
 }
 .home_content {

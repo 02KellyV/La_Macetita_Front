@@ -7,19 +7,16 @@ import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
 import { hideLoader, notification, saveUser, showLoader } from "../../store/actions";
 
-const Wrapper = styled.div`
-  .background_image {
-  }
-`;
+import Auth from "../../store/reducers/Auth";
 
-function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
+const Wrapper = styled.div``;
+
+function SignIn({ user: loggedUser, onNotification, onShowLoader, onHideLoader }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState({
-    name: "",
     email: "",
     password: "",
-    confirm_password: "",
   });
 
   useEffect(() => {
@@ -30,9 +27,9 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
     }
   });
 
-  const register = () => {
+  const login = () => {
     onShowLoader();
-    axios.post("http://www.lamacetita.com:8000/api/auth/signup", user).then(
+    axios.post("http://www.lamacetita.com:8000/api/auth/signin", user).then(
       (response) => {
         const { id, name, email, token } = response.data.data;
         dispatch(
@@ -47,11 +44,11 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
         history.push({
           pathname: "/",
         });
-        onNotification("Welcome!", "success");
+        onNotification("Bienvenido!", "success");
       },
       (error) => {
         onHideLoader();
-        onNotification("Algo salió mal, por favor intenta nuevamente", "error");
+        onNotification(error.response.data.message, "error");
       }
     );
   };
@@ -67,7 +64,7 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
             <div className="home_slider_container">
               <div className="owl-carousel owl-theme home_slider owl-loaded">
                 <div className="slide">
-                  <div className="background_image" style={{ backgroundImage: "url(/images/bg3.jpg)" }}></div>
+                  <div className="background_image" style={{ backgroundImage: "url(images/bg3.jpg)" }}></div>
                   <div className="home_container">
                     <div className="container">
                       <div className="row">
@@ -75,33 +72,17 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
                           <div className="home_content ">
                             <div className="panel panel-default">
                               <div className="panel-heading">
-                                <h3 className="panel-title text-white">Register</h3>
+                                <h3 className="panel-title text-white">Sing In</h3>
                               </div>
                               <div className="panel-body">
                                 <form
                                   onSubmit={(e) => {
                                     e.preventDefault();
-                                    register();
+                                    login();
                                   }}
                                 >
                                   <fieldset>
                                     <div className="form-group mt-2">
-                                      <input
-                                        value={user.name}
-                                        onChange={(e) =>
-                                          setUser({
-                                            ...user,
-                                            name: e.target.value,
-                                          })
-                                        }
-                                        className="form-control"
-                                        placeholder="John Doe"
-                                        name="name"
-                                        type="text"
-                                        required={true}
-                                      />
-                                    </div>
-                                    <div className="form-group mt-4">
                                       <input
                                         value={user.email}
                                         onChange={(e) =>
@@ -133,23 +114,7 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
                                         required={true}
                                       />
                                     </div>
-                                    <div className="form-group mt-4">
-                                      <input
-                                        value={user.confirm_password}
-                                        onChange={(e) =>
-                                          setUser({
-                                            ...user,
-                                            confirm_password: e.target.value,
-                                          })
-                                        }
-                                        className="form-control"
-                                        placeholder="Confirm password"
-                                        name="password"
-                                        type="password"
-                                        required={true}
-                                      />
-                                    </div>
-                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Register" />
+                                    <input className="btn btn-lg btn-success btn-block mt-5" type="submit" value="Sign In" />
                                   </fieldset>
                                 </form>
                               </div>
@@ -170,7 +135,9 @@ function Register({ user: loggedUser, onNotification, onShowLoader, onHideLoader
   );
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  user: state.Auth.user,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onShowLoader: () => {
@@ -186,4 +153,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 const connecter = connect(mapStateToProps, mapDispatchToProps);
 
-export default connecter(Register);
+export default connecter(SignIn);

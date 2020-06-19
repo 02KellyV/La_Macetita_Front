@@ -50,7 +50,7 @@ function Harvests() {
       <div className="container my-5">
         <div className="row">
           <div className="col">
-            <h2>Cosechas</h2>
+            <h2>Harvests</h2>
 
             <button
               type="button"
@@ -61,18 +61,18 @@ function Harvests() {
                 toggleCreateUpdateItemModal();
               }}
             >
-              Crear
+              Create
             </button>
             <CreateUpdateItemModal
               item={!create ? item : { [item]: {} }}
-              itemName="Cosecha"
+              itemName="Harvest"
               createUpdateItemModal={createUpdateItemModal}
               toggleCreateUpdateItemModal={toggleCreateUpdateItemModal}
               create={create}
             />
 
             <DeleteItemModal
-              itemName="Cosecha"
+              itemName="Harvest"
               id={item.id}
               name={item.name}
               deleteItemModal={deleteItemModal}
@@ -86,10 +86,10 @@ function Harvests() {
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripción</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
                   <th scope="col" className="actions">
-                    Acciones
+                    Actions
                   </th>
                 </tr>
               </thead>
@@ -109,7 +109,7 @@ function Harvests() {
                           toggleCreateUpdateItemModal();
                         }}
                       >
-                        Editar
+                        Edit
                       </button>
 
                       <button
@@ -121,7 +121,7 @@ function Harvests() {
                           toggleDeleteItemModal();
                         }}
                       >
-                        Eliminar
+                        Delete
                       </button>
                     </td>
                   </tr>

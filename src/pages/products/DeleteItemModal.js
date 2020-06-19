@@ -14,14 +14,14 @@ function DeleteItemModal(props) {
           props.toggleDeleteItemModal();
         }}
       >
-        <ModalHeader toggle={props.toggleDeleteItemModal}>Eliminar {props.itemName}</ModalHeader>
-        <ModalBody>{`Está seguro de eliminar el producto: ${props.name}?`}</ModalBody>
+        <ModalHeader toggle={props.toggleDeleteItemModal}>Delete {props.itemName}</ModalHeader>
+        <ModalBody>{`Are you sure you want to delete the product: ${props.name}?`}</ModalBody>
         <ModalFooter>
           <button className="btn btn-default" type="button" onClick={props.toggleDeleteItemModal}>
             Cerar
           </button>
           <button className="btn btn-danger" type="submit">
-            Eliminar
+            Delete
           </button>
         </ModalFooter>
       </form>

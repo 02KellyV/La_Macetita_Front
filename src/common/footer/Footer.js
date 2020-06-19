@@ -77,7 +77,7 @@ function Footer() {
           </div>
           <div className="cta_text">
             <p>
-              El campo, nos da vida y tranquilidad. No hay nada más saludable que alimentarnos de cosechas frescas. Acércate a tu huerta
+              El campo, nos da vida y tranquilidad. No hay nada más saludable que alimentarnos de harvests frescas. Acércate a tu huerta
               orgánica más cerca y llénate de la energía de una huerta.
             </p>
           </div>
