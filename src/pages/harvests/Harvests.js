@@ -3,18 +3,26 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Footer from "../../common/footer/Footer";
 import Menu from "../../common/menu/Menu";
+import CreateUpdateItemModal from "./CreateUpdateItemModal";
+import DeleteItemModal from "./DeleteItemModal";
 
 const Wrapper = styled.div``;
 
 function Harvests() {
+  const [item, setItem] = useState({
+    name: "",
+  });
   const [harvests, setHarvests] = useState([]);
+  const [create, setCreate] = useState(true);
+  const [createUpdateItemModal, setToggleCreateUpdateItemModal] = useState(false);
+  const [deleteItemModal, setToggleDeleteItemModal] = useState(false);
 
   useEffect(() => {
     getHarvest();
   }, []);
 
   const getHarvest = () => {
-    axios(`http://www.lamacetita.com:8000/api/harvests`).then(
+    axios(`http://www.lamacetita.com:8000/api/harvests?search=fresas&page=1&total=10`).then(
       (response) => {
         setHarvests(response.data.data);
       },
@@ -24,22 +32,51 @@ function Harvests() {
     );
   };
 
+  const toggleCreateUpdateItemModal = () => {
+    setToggleCreateUpdateItemModal(!createUpdateItemModal);
+  };
+
+  const toggleDeleteItemModal = () => {
+    if (deleteItemModal) {
+      setItem({});
+    }
+    setToggleDeleteItemModal(!deleteItemModal);
+  };
+
   return (
     <Wrapper>
       <Menu />
-      <div className="container my-4">
+      <div className="container my-5">
         <div className="row">
           <div className="col">
             <h2>Cosechas</h2>
+
             <button
               type="button"
-              className="btn btn-primary btn-sm float-right"
-              onClick={(e) => {
-                e.stopPropagation();
+              className="btn btn-primary mb-2 ml-3 float-right"
+              onClick={() => {
+                setCreate(true);
+                setItem({});
+                toggleCreateUpdateItemModal();
               }}
             >
               Crear
             </button>
+            <CreateUpdateItemModal
+              item={!create ? item : { [item]: {} }}
+              itemName="Cosecha"
+              createUpdateItemModal={createUpdateItemModal}
+              toggleCreateUpdateItemModal={toggleCreateUpdateItemModal}
+              create={create}
+            />
+
+            <DeleteItemModal
+              itemName="Cosecha"
+              id={item.id}
+              name={item.name}
+              deleteItemModal={deleteItemModal}
+              toggleDeleteItemModal={toggleDeleteItemModal}
+            />
           </div>
         </div>
 
@@ -48,7 +85,7 @@ function Harvests() {
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
+                  <th scope="col">Nombre</th>
                   <th scope="col">Descripción</th>
                   <th scope="col" className="actions">
                     Acciones
@@ -57,15 +94,18 @@ function Harvests() {
               </thead>
               <tbody>
                 {harvests.map((harvest, index) => (
-                  <tr key={harvest.id}>
+                  <tr key={harvest._id}>
                     <td className="align-middle">{harvest.name}</td>
                     <td className="align-middle">{harvest.description}</td>
                     <td className="align-middle">
                       <button
                         type="button"
-                        className="btn btn-primary btn-sm mr-2"
+                        className="btn btn-primary mr-2"
                         onClick={(e) => {
                           e.stopPropagation();
+                          setCreate(false);
+                          setItem({ ...harvest });
+                          toggleCreateUpdateItemModal();
                         }}
                       >
                         Editar
@@ -73,10 +113,11 @@ function Harvests() {
 
                       <button
                         type="button"
-                        className="btn btn-danger btn-sm mr-2"
-                        danger
+                        className="btn btn-danger mr-2"
                         onClick={(e) => {
                           e.stopPropagation();
+                          setItem({ ...harvest });
+                          toggleDeleteItemModal();
                         }}
                       >
                         Eliminar

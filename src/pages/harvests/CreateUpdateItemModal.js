@@ -3,16 +3,12 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { hideLoader, notification, showLoader } from "../../store/actions";
-import UploadFile from "./UploadFile";
 
 function CreateUpdateItemModal(props) {
   const defaultState = {
     id: null,
     name: "",
-    price: "",
     description: "",
-    harvest_id: "",
-    productImages: [],
   };
   const [item, setItem] = useState(defaultState);
   const [harvests, setHarvests] = useState([]);
@@ -39,9 +35,9 @@ function CreateUpdateItemModal(props) {
     setItem({ ...item, ...props.item });
   }, [props.item]);
 
-  const removeProductImage = (position) => {
-    const productImageFiltered = item.productImages.filter((productImage, index) => index !== position);
-    setItem({ ...item, productImages: productImageFiltered });
+  const removeHarvestImage = (position) => {
+    const harvestImageFiltered = item.harvestImages.filter((harvestImage, index) => index !== position);
+    setItem({ ...item, harvestImages: harvestImageFiltered });
   };
 
   return (
@@ -59,7 +55,7 @@ function CreateUpdateItemModal(props) {
                 discount: parseInt(item.discount),
                 fabric_id: item.fabric ? item.fabric.id : null,
                 frame_ids: item.frames.map((frame) => frame.id),
-                product_images: item.productImages,
+                harvest_images: item.harvestImages,
               },
             });
             setItem({});
@@ -75,10 +71,6 @@ function CreateUpdateItemModal(props) {
               <input className="form-control" value={item.name} required={true} onChange={(e) => setItem({ ...item, name: e.target.value })} />
             </div>
             <div className="form-group">
-              <label>Precio</label>
-              <input className="form-control" value={item.price} required={true} onChange={(e) => setItem({ ...item, price: e.target.value })} />
-            </div>
-            <div className="form-group">
               <label>Descripción</label>
               <textarea
                 className="form-control"
@@ -86,59 +78,6 @@ function CreateUpdateItemModal(props) {
                 required={true}
                 onChange={(e) => setItem({ ...item, description: e.target.value })}
               />
-            </div>
-            <div className="form-group">
-              <label>Cosecha</label>
-              <select
-                className="form-control"
-                value={item.harvest_id}
-                required={true}
-                onChange={(e) => setItem({ ...item, harvest_id: e.target.value })}
-              >
-                <option value="">Seleccionar...</option>
-                {harvests.map((harvest) => (
-                  <option value={harvest.id}>{harvest.name}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label>Foto</label>
-              <UploadFile
-                value={""}
-                setValue={(url) => {
-                  console.log({ url });
-                  if (url !== "") {
-                    setItem({
-                      ...item,
-                      productImages: [...item.productImages, { path: url }],
-                    });
-                  }
-                }}
-                accept="image/*"
-                path="products"
-                role="products"
-              />
-              <div className="row mt-2">
-                {item.productImages.map((productImage, index) => {
-                  return (
-                    <div className="col-6" key={index}>
-                      <img className="img-fluid mt-3" src={productImage.path} />
-                      <i
-                        style={{
-                          position: "absolute",
-                          right: "23px",
-                          bottom: "10px",
-                        }}
-                        className="pointer float-right icon-trash far fa-trash-alt"
-                        onClick={() => {
-                          removeProductImage(index);
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           </ModalBody>
           <ModalFooter>
