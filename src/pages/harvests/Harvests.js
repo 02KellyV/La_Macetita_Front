@@ -18,11 +18,12 @@ function Harvests() {
   const [deleteItemModal, setToggleDeleteItemModal] = useState(false);
 
   useEffect(() => {
+    console.log("getHarvest");
     getHarvest();
   }, []);
 
   const getHarvest = () => {
-    axios(`http://www.lamacetita.com:8000/api/harvests?search=fresas&page=1&total=10`).then(
+    axios(`http://www.lamacetita.com:8000/api/harvests`).then(
       (response) => {
         setHarvests(response.data.data);
       },

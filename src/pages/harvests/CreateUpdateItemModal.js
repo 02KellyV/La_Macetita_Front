@@ -11,22 +11,7 @@ function CreateUpdateItemModal(props) {
     description: "",
   };
   const [item, setItem] = useState(defaultState);
-  const [harvests, setHarvests] = useState([]);
 
-  useEffect(() => {
-    const fetchHarvests = () => {
-      axios(`http://www.lamacetita.com:8000/api/harvests`).then(
-        (response) => {
-          setHarvests(response.data.data);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    };
-
-    fetchHarvests();
-  }, []);
   useEffect(() => {
     if (props.create) {
       setItem(defaultState);
