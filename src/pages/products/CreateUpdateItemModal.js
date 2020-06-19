@@ -67,7 +67,7 @@ function CreateUpdateItemModal(props) {
           onSubmit={(e) => {
             e.preventDefault();
             props.onShowLoader();
-            axios.defaults.headers.common = { Authorization: `Bearer ${props.user.token}` };
+            axios.defaults.headers.common = { Authorization: `${props.user.token}` };
 
             axios.post("http://www.lamacetita.com:8000/api/products", item).then(
               (response) => {
