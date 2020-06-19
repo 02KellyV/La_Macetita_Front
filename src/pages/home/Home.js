@@ -41,14 +41,13 @@ function Home() {
                               <form action="#" className="search_form" id="search_form">
                                 <div className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
                                   <input
-                                    type="text"
-                                    value={query}
+                                    type="text" value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                     className="search_input"
-                                    placeholder="Que deseas comer hoy?"
+                                    placeholder="..."
                                   />
                                   <button className="search_button" onClick={search}>
-                                    Buscar
+                                    Search
                                   </button>
                                 </div>
                               </form>
@@ -67,58 +66,53 @@ function Home() {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  <div className="section_title text-center">
-                    <h1>Encuentra los mejores products cerca</h1>
-                  </div>
-                  <div className="row mt-3">
-                    <div className="col food_item">
+                <div className="row mt-3">
+                  <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Fusion</a>
+                          <a href="#">Fruits</a>
                         </div>
-                        <img src="images/best-products-1.jpg" className="img-fluid" />
+                        <img src="images/fruits.png" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Vitaminas</a>
+                          <a href="#">Vegetables</a>
                         </div>
-                        <img src="images/best-products-2.jpg" className="img-fluid" />
+                        <img src="images/Vegetables.png" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Energia</a>
+                          <a href="#">Greens</a>
                         </div>
-                        <img src="images/best-products-3.jpg" className="img-fluid" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row mt-3">
-                    <div className="col food_item">
-                      <div className="">
-                        <div className="food_item_tag">
-                          <a href="#">Frescura</a>
-                        </div>
-                        <img src="images/best-products-4.jpg" className="img-fluid" />
+                        <img src="images/Hortal.png" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Calidad</a>
+                          <a href="#">Tubers</a>
                         </div>
-                        <img src="images/best-products-5.jpg" className="img-fluid" />
+                        <img src="images/Tuber.png" className="img-fluid" />
                       </div>
                     </div>
                     <div className="col food_item">
                       <div className="">
                         <div className="food_item_tag">
-                          <a href="#">Fusion</a>
+                          <a href="#">Grains</a>
                         </div>
-                        <img src="images/best-products-6.jpg" className="img-fluid" />
+                        <img src="images/Beans.png" className="img-fluid" />
+                      </div>
+                    </div>
+                    <div className="col food_item">
+                      <div className="">
+                        <div className="food_item_tag">
+                          <a href="#">Nuts</a>
+                        </div>
+                        <img src="images/Nuts.png" className="img-fluid" />
                       </div>
                     </div>
                   </div>
@@ -131,20 +125,17 @@ function Home() {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  <div className="section_title text-center">
-                    <h1>Como Funciona</h1>
-                  </div>
                   <div className="icon_box_container d-flex flex-row align-items-start justify-content-between flex-wrap">
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">01.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_6.svg" alt="https://www.flaticon.com/authors/monkik" />
+                        <img src="images/icon_6.svg" alt="" />
                       </div>
                       <div className="icon_box_title">Choose a category</div>
                       <div className="icon_box_text">
                         <p>
                           Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper
-                          neque. Suspendisse quam est
+                          neque.
                         </p>
                       </div>
                     </div>
@@ -152,7 +143,7 @@ function Home() {
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">02.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_7.svg" alt="https://www.flaticon.com/authors/monkik" />
+                        <img src="images/icon_7.svg" alt="" />
                       </div>
                       <div className="icon_box_title">Find your pick</div>
                       <div className="icon_box_text">
@@ -166,7 +157,7 @@ function Home() {
                     <div className="icon_box d-flex flex-column align-items-center justify-content-start text-center">
                       <div className="icon_box_num">03.</div>
                       <div className="icon_box_icon">
-                        <img src="images/icon_8.svg" alt="https://www.flaticon.com/authors/monkik" />
+                        <img src="images/icon_8.svg" alt="" />
                       </div>
                       <div className="icon_box_title">Go & have fun</div>
                       <div className="icon_box_text">
