@@ -44,7 +44,7 @@ function Login({ user: loggedUser, onNotification, onShowLoader, onHideLoader })
         history.push({
           pathname: "/",
         });
-        onNotification("Welcome!", "success");
+        onNotification("Bienvenido!", "success");
       },
       (error) => {
         onHideLoader();

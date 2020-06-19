@@ -26,7 +26,6 @@ export const notification = (payload) => ({
 });
 
 const updateUserLocalStorage = (state, user) => {
-  console.log(user);
   localStorage.setItem("user", JSON.stringify(user));
 
   return { ...state, user };

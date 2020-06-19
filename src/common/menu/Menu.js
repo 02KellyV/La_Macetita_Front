@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import HamburgerMenu from "react-hamburger-menu";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import { notification, saveUser } from "../../store/actions";
-import HamburgerMenu from "react-hamburger-menu";
-import { withRouter } from "react-router";
+import Loader from "../loader/Loader";
 import "./menu.css";
 
 const HamburgerMenuWrapper = styled.div`
@@ -86,9 +86,10 @@ function Menu({ user, notification, onNotification }) {
   useEffect(() => {
     let user = localStorage.getItem("user");
     if (user) {
-      console.log(user);
       user = JSON.parse(user);
-      dispatch(saveUser(user));
+      if (user.id) {
+        dispatch(saveUser(user));
+      }
     }
   }, []);
 
@@ -116,6 +117,18 @@ function Menu({ user, notification, onNotification }) {
 
   return (
     <Wrapper>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      />
+      <Loader />
       <div>
         <HamburgerMenuWrapper>
           <HamburgerMenu
@@ -135,11 +148,7 @@ function Menu({ user, notification, onNotification }) {
             <li className={classSignIn}>
               <div>
                 <Link to="/login">
-                  <img
-                    width="170"
-                    src="/images/beet-sign-in-sign-up.png"
-                    alt="sign in/up"
-                  />
+                  <img width="170" src="/images/beet-sign-in-sign-up.png" alt="sign in/up" />
                 </Link>
               </div>
             </li>
@@ -148,18 +157,6 @@ function Menu({ user, notification, onNotification }) {
                 Home
               </Link>
             </li>
-            {user.id ? (
-              <>
-                <li>
-                  <Link className="a" to="/harvests">
-                    Harvests
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/products">Products</Link>
-                </li>
-              </>
-            ) : null}
             <li>
               <Link className="a" to="/stories">
                 Stories
@@ -176,27 +173,40 @@ function Menu({ user, notification, onNotification }) {
               </Link>
             </li>
             {user.id ? (
-              <li>
-                <Link className="a" onClick={logout()}>
-                  Logout
-                </Link>
-              </li>
-            ) : null}
+              <>
+                <li>
+                  <Link className="a" to="/harvests">
+                    Cosechas
+                  </Link>
+                </li>
+                <li>
+                  <Link className="a" to="/products">
+                    Productos
+                  </Link>
+                </li>
+                <li>
+                  <a className="">{user.name}</a>
+                </li>
+                <li>
+                  <Link className="a" onClick={logout}>
+                    Logout
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">Entrar</Link>
+                </li>
+                <li>
+                  <Link to="/register">Registrarse</Link>
+                </li>
+              </>
+            )}
           </ul>
         </StyledMenu>
       </div>
-      {/*<ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnVisibilityChange
-        draggable
-        pauseOnHover
-      />
-      <Loader />
+      {/*
       <div className="menu">
         <div className="menu_container text-right">
           <div className="menu_close">close</div>
