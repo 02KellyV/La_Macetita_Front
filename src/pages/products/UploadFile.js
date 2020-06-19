@@ -11,9 +11,7 @@ class ImportData extends React.Component {
 
   handleChange = (files) => {
     const formData = new FormData();
-    formData.append("file", files[0]);
-    formData.append("path", this.props.path);
-    formData.append("role", this.props.role);
+    formData.append("photo", files[0]);
 
     this.setState({
       ...this.state,
@@ -23,7 +21,7 @@ class ImportData extends React.Component {
     });
 
     this.props.setValue("");
-    const url = "/api/upload-files";
+    const url = "http://www.lamacetita.com:8000/api/products/upload";
     Axios.post(url, formData, {
       onUploadProgress: (ProgressEvent) => {
         this.setState({
@@ -33,7 +31,7 @@ class ImportData extends React.Component {
       },
     }).then((res) => {
       setTimeout(() => {
-        if (!res.data.success) {
+        if (res.status != 200) {
           this.setState({
             ...this.state,
             uploading: true,
@@ -41,7 +39,8 @@ class ImportData extends React.Component {
             errors: res.data.errors,
           });
         } else {
-          this.props.setValue(res.data.url);
+          console.log({ res });
+          this.props.setValue(res.data.data);
         }
         this.setState({
           ...this.state,
@@ -81,7 +80,7 @@ class ImportData extends React.Component {
             <div className="col-4">
               <div className="upload-btn-wrapper">
                 <button type="button" className="btn btn-primary">
-                  {this.props.label ? this.props.label : "Seleccionar..."}
+                  {this.props.label ? this.props.label : "Select file..."}
                 </button>
                 <input
                   type="file"

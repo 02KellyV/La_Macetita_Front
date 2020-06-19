@@ -70,7 +70,7 @@ function CreateUpdateItemModal(props) {
               Close
             </button>
             <button type="submit" className="btn btn-primary">
-              Guardar
+              Save
             </button>
           </ModalFooter>
         </form>

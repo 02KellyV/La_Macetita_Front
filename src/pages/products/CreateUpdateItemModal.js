@@ -11,11 +11,13 @@ function CreateUpdateItemModal(props) {
     name: "",
     price: "",
     description: "",
-    harvest_id: "",
-    productImages: [],
+    harvest: "",
+    category: "",
+    photo: "",
   };
   const [item, setItem] = useState(defaultState);
   const [harvests, setHarvests] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchHarvests = () => {
@@ -29,8 +31,21 @@ function CreateUpdateItemModal(props) {
       );
     };
 
+    const fetchCategories = () => {
+      axios(`http://www.lamacetita.com:8000/api/categories`).then(
+        (response) => {
+          setCategories(response.data.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    };
+
     fetchHarvests();
+    fetchCategories();
   }, []);
+
   useEffect(() => {
     if (props.create) {
       setItem(defaultState);
@@ -52,16 +67,19 @@ function CreateUpdateItemModal(props) {
           onSubmit={(e) => {
             e.preventDefault();
             props.onShowLoader();
-            props.mutation({
-              variables: {
-                id: item.id,
-                name: item.name,
-                discount: parseInt(item.discount),
-                fabric_id: item.fabric ? item.fabric.id : null,
-                frame_ids: item.frames.map((frame) => frame.id),
-                product_images: item.productImages,
+            axios.defaults.headers.common = { Authorization: `Bearer ${props.user.token}` };
+
+            axios.post("http://www.lamacetita.com:8000/api/products", item).then(
+              (response) => {
+                console.log({ response });
+                props.onHideLoader();
+                props.onNotification("Product created!", "success");
               },
-            });
+              (error) => {
+                props.onHideLoader();
+                props.onNotification("Something went wrong, please try again.", "error");
+              }
+            );
             setItem({});
             props.toggleCreateUpdateItemModal();
           }}
@@ -75,7 +93,7 @@ function CreateUpdateItemModal(props) {
               <input className="form-control" value={item.name} required={true} onChange={(e) => setItem({ ...item, name: e.target.value })} />
             </div>
             <div className="form-group">
-              <label>Precio</label>
+              <label>Price</label>
               <input className="form-control" value={item.price} required={true} onChange={(e) => setItem({ ...item, price: e.target.value })} />
             </div>
             <div className="form-group">
@@ -89,55 +107,58 @@ function CreateUpdateItemModal(props) {
             </div>
             <div className="form-group">
               <label>Harvest</label>
-              <select
-                className="form-control"
-                value={item.harvest_id}
-                required={true}
-                onChange={(e) => setItem({ ...item, harvest_id: e.target.value })}
-              >
-                <option value="">Seleccionar...</option>
+              <select className="form-control" value={item.harvest} required={true} onChange={(e) => setItem({ ...item, harvest: e.target.value })}>
+                <option value="">Select...</option>
                 {harvests.map((harvest) => (
-                  <option value={harvest.id}>{harvest.name}</option>
+                  <option value={harvest._id}>{harvest.name}</option>
                 ))}
               </select>
             </div>
 
             <div className="form-group">
-              <label>Foto</label>
+              <label>Category</label>
+              <select className="form-control" value={item.category} required={true} onChange={(e) => setItem({ ...item, category: e.target.value })}>
+                <option value="">Select...</option>
+                {categories.map((category) => (
+                  <option value={category._id}>{category.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Photo</label>
               <UploadFile
-                value={""}
+                value={item.photo}
                 setValue={(url) => {
                   if (url !== "") {
                     setItem({
                       ...item,
-                      productImages: [...item.productImages, { path: url }],
+                      photo: url,
                     });
                   }
                 }}
                 accept="image/*"
-                path="products"
-                role="products"
               />
-              <div className="row mt-2">
-                {item.productImages.map((productImage, index) => {
-                  return (
-                    <div className="col-6" key={index}>
-                      <img className="img-fluid mt-3" src={productImage.path} />
-                      <i
-                        style={{
-                          position: "absolute",
-                          right: "23px",
-                          bottom: "10px",
-                        }}
-                        className="pointer float-right icon-trash far fa-trash-alt"
-                        onClick={() => {
-                          removeProductImage(index);
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+              {item.photo != "" && (
+                <div className="row mt-5">
+                  <div className="col">
+                    <img className="img-fluid " src={item.photo} />
+                    <button
+                      style={{
+                        position: "absolute",
+                        right: "23px",
+                        bottom: "10px",
+                      }}
+                      className="btn btn-danger btn-sm float-right"
+                      onClick={() => {
+                        setItem({ ...item, photo: "" });
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </ModalBody>
           <ModalFooter>
@@ -145,7 +166,7 @@ function CreateUpdateItemModal(props) {
               Close
             </button>
             <button type="submit" className="btn btn-primary">
-              Guardar
+              Save
             </button>
           </ModalFooter>
         </form>
@@ -154,7 +175,11 @@ function CreateUpdateItemModal(props) {
   );
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  return {
+    user: state.Auth.user,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onShowLoader: () => {
